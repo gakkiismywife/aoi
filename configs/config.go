@@ -4,14 +4,6 @@ import (
 	"github.com/spf13/viper"
 )
 
-type Cfg struct {
-	Server   *Server   `yaml:"server"`
-	Jwt      *Jwt      `yaml:"jwt"`
-	Database *Database `yaml:"database"`
-	Redis    *Redis    `yaml:"redis"`
-	ImageDb  *ImageDb  `yaml:"imageDb"`
-}
-
 type Server struct {
 	Host string `yaml:"host"`
 	Port int    `yaml:"port"`
@@ -45,7 +37,6 @@ type ImageDb struct {
 }
 
 var (
-	C              *Cfg
 	ServerConfig   *Server
 	JwtConfig      *Jwt
 	DatabaseConfig *Database
@@ -68,14 +59,6 @@ func InitCfg() error {
 	_ = v.UnmarshalKey("Database", &DatabaseConfig)
 	_ = v.UnmarshalKey("Redis", &RedisConfig)
 	_ = v.UnmarshalKey("ImageDb", &ImageDbConfig)
-
-	C = &Cfg{
-		Server:   ServerConfig,
-		Jwt:      JwtConfig,
-		Database: DatabaseConfig,
-		Redis:    RedisConfig,
-		ImageDb:  ImageDbConfig,
-	}
 
 	return nil
 }
