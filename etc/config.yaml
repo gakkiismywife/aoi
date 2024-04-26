@@ -1,0 +1,28 @@
+Server:
+  Port: 8888
+  Mode: debug
+  ReadTimeout: 60
+  WriteTimeout: 60
+Database:
+  Host: 127.0.0.1
+  Port: 5432
+  Username: postgres
+  Password: 123456
+  Database: aitrain
+  MaxIdleConns: 10
+  MaxOpenConns: 100
+Redis:
+  Host: 127.0.0.1
+  Port: 6379
+  Password:
+  # 密码为空时，不配置该项
+  # Password:
+  Index: 0
+  MaxIdle: 10
+  MaxActive: 0
+  IdleTimeout: 60
+Storage:
+  Path: D:/AITrain/data/
+ImageDB:
+  Host: 127.0.0.1
+  Port: 7900
